@@ -1,0 +1,42 @@
+/*去除标签自带的样式*/
+* {
+    margin: 0;
+    padding: 0;
+}
+ 
+ul {
+    list-style: none;
+    width: auto;
+    height: 100%;
+    object-fit: cover;
+}
+li {
+    width: auto;
+    height: 100%;
+    object-fit: cover;
+}
+ 
+img {
+    width: auto;
+    height: 100%;
+    object-fit: cover;
+}
+/*设置整个轮播图的布局*/
+.carousel {
+    position: relative;
+    width: autopx;
+    height: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+    box-sizing: border-box;
+    /*超出部分隐藏*/
+    overflow: hidden;
+}
+/*设置背景图片的布局*/
+.content {
+    position: absolute;
+    height: 100%;
+    width: auto;
+    z-index: 1;
+    object-fit: cover;
+}

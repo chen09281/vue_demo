@@ -1,0 +1,20 @@
+.reegit{
+    margin-top: 300px;
+    text-align: center;
+    width: 100%;
+}
+.back{
+    position: absolute;
+    top: 5%;
+    left: 60%;
+}
+.back img{
+    height: 50px;
+    width: auto;
+}
+.error{
+    margin-top: 5%;
+}
+.error p{
+    margin-top: 1%;
+}

@@ -1,0 +1,51 @@
+@media screen and (max-width:500px) {
+    .left{
+        display: none;
+    }
+    body{
+        background: url(../../../image/15D.jpg) no-repeat;
+        background-size: 120%;
+    }
+    .right{
+        width: 70%;
+        height: 60%;
+        position: absolute;
+        left: 15%;
+        top: 20%;
+        margin: 0 auto;
+        background-color: #F5F8FA;
+        border-radius: 25px;
+        box-shadow: 0 0 2rem 0 rgb(136 152 170 / 15%);
+    }
+    button{
+        width: 30%;
+    }
+    /* 登录 */
+    .login{
+        margin-top: 50%;
+    }
+    .regit{
+        margin-left: 30%;
+    }
+    /* 注册 */
+    .back{
+        left: 10%;
+    }
+    .back img{
+        height: 30px;
+        width: auto;
+    }
+    .reegit{
+        margin-top: 50%;
+    }
+    .reegit button{
+        margin-top: 10%;
+    }
+    /* 找回密码 */
+    .loost{
+        margin-top: 50%;
+    }
+    .loost button{
+        margin-top: 10%;
+    }
+}

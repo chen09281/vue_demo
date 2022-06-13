@@ -1,0 +1,440 @@
+/* 全局设置 */
+*{
+    padding: 0;
+    margin: 0;
+}
+.box{
+    width: 100%;
+    height: auto;
+}
+a{
+    text-decoration: none;
+}
+body{
+    background-color: #F5F8FA;
+}
+
+/* top */
+.nav{
+    width: 100%;
+    height: 50px;
+    background: #fff;
+    position: fixed;
+    box-shadow: 0 0 3px #000;
+    z-index: 1000;
+}
+.nav ul{
+    width: 40%;
+    height: 50px;
+    margin-left: 15%;
+}
+.nav li{
+    list-style-type: none;
+    line-height: 50px;
+    float: left;
+    font-size: 17px;
+    margin-left: 10px;
+}
+.nav img{
+    width: auto;
+    height: 20px;
+    line-height: 50px;
+}
+#text{
+    margin-left: 5px;
+}
+.nav li a{
+    color: #66757f;
+    display: block;
+    height: 48px;
+}
+.nav li a:hover{
+    border-bottom: 3px solid #7B878C;
+}
+/* 搜索框*/
+.select{
+    border-color: transparent;
+    background-color: #FAFAFA;
+    float: left;
+    height: 45px;
+    width: 15%;
+    position:absolute;
+    top: 0;
+    left: 60%;
+}
+input{
+    padding-left: 1%;
+    outline: none;
+}
+.nav a{
+    color: #fff;
+}
+.login{
+    position: absolute;
+    top: 14%;
+    left: 77%;
+    width: 7%;
+    line-height: 40px;
+    text-align: center;
+    height: 40px;
+    border-radius: 25px;
+    background-color: #93A6A2;
+}
+.login:hover{
+    background-color: #7D938E;
+}
+/* 背景 */
+.background{
+    object-fit: cover;
+    width: 100%;
+    height: 500px;
+    box-shadow: inset 0 0 1px 1px rgb(0 0 0 / 10%);
+    overflow: hidden;
+    z-index: 2;
+}
+#background{
+    width: 100%;
+    height: auto;
+}
+
+/* 导航栏 */
+.nav2{
+    width: 100%;
+    height: 60px;
+    background-color: #fff;
+    box-shadow: inset 0 0 1px 1px rgb(0 0 0 / 10%);
+}
+.nav2 ul{
+    width: 30%;
+    height: 60px;
+    margin-left: 30%;
+}
+.nav2 li{
+    float: left;
+    margin-left: 10%;
+    line-height: 60px;
+    list-style-type: none;
+}
+.nav2 img{
+    width: auto;
+    height: 25px;
+}
+#index{
+    border-bottom: 3px solid #7B878C;
+}
+#about:hover{
+    border-bottom: 3px solid #7B878C;
+}
+.nav2 a{
+    color: #66757f;
+    display: block;
+    height: 55px;
+}
+.head{
+    width: 200px;
+    height: 200px;
+    z-index: 10;
+    float: left;
+    position: absolute;
+    top: 380px;
+    left: 10%;
+}
+.head img{
+    width: 200px;
+    height: 200px;
+    z-index: 1;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #fff;
+}
+
+/* 内容 */
+.content{
+    width: 100%;
+    height: auto;
+}
+/* left */
+.left{
+    width: 20%;
+    margin-left: 10%;
+    margin-top: 5%;
+    float: left;
+}
+#name{
+    color: gray;
+    font-size: 13px;
+    margin-top: 2%;
+}
+#test{
+    margin-top: 3%;
+}
+.email:hover{
+    background-color: #7D938E;
+}
+.qq:hover{
+    background-color: #7D938E;
+}
+.blog:hover{
+    background-color: #7B878C;
+}
+.github:hover{
+    background-color: #7B878C;
+}
+.bilibili:hover{
+    background-color: #7B878C;
+}
+.list a{
+    color: #7B87A9;
+}
+.list a:hover{
+    color: #fff;
+}
+.left ul{
+    margin-top: 5%;
+}
+.left li{
+    list-style-type: none;
+}
+.left li::before{
+    content: "";
+    width: 4px;
+    height: 4px;
+    float: left;
+    top: 8px;
+    margin-right: 8px;
+    position: relative;
+    border: 2px solid #a5a5a5;
+    border-radius: 100%;
+    display: inline-block;
+    background-color: #70e7e5;
+}
+.contact{
+    margin-top: 10%;
+    height: 70px;
+}
+.email{
+    background: red;
+    width: 30%;
+    height: 40px;
+    border-radius: 25px;
+    background-color: #93A6A2;
+    color: #fff;
+    line-height: 40px;
+    text-align: center;
+    float: left;
+}
+.qq{
+    background-color: #93A6A2;
+    width: 30%;
+    height: 40px;
+    float: left;
+    margin-left: 5%;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 25px;
+}
+.contact a{
+    color: #fff;
+}
+.index{
+    margin-top: 10%;
+}
+.index img{
+    width: auto;
+    height: 20px;
+}
+.blog{
+    width: 20%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 25px;
+    border: 1px solid #000;
+    float: left;
+}
+.github{
+    width: 20%;
+    height: 30px;
+    line-height: 30px;
+    float: left;
+    margin-left: 4%;
+    text-align: center;
+    border-radius: 25px;
+    border: 1px solid #000;
+}
+.bilibili{
+    width: 20%;
+    height: 30px;
+    line-height: 30px;
+    float: left;
+    margin-left: 4%;
+    text-align: center;
+    border-radius: 25px;
+    border: 1px solid #000;
+}
+.list{
+    margin-top: 3%;
+}
+
+/* mid */
+.mid{
+    width: 40%;
+    height: auto;
+    background: #fff;
+    border: 1px solid #E1E8ED;
+    margin: 0 auto;
+    float: left;
+    margin-top: 1%;
+    border-radius: 8px;
+}
+.state{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid #E1E8ED;
+}
+.state p{
+    margin-left: 3%;
+    font-size: 14px;
+}
+
+/* 内容样式 */
+#testimg{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    float: left;
+}
+.test a{
+    color: #000;
+}
+.test a:hover{
+    color: #7B878C;
+}
+.basics{
+    margin-left: 5%;
+    margin-top: 5%;
+}
+.wz{
+    margin-left: 4%;
+    float: left;
+}
+.time{
+    float: left;
+}
+.test h3{
+    margin-top: 2%;
+}
+.wz p{
+    margin-top: 10%;
+}
+#drawing{
+    width: 80%;
+    height: auto;
+    margin-left: 12%;
+    margin-top: 3%;
+}
+.test{
+    width: 100%;
+    border-bottom: 1px solid #E1E8ED;
+    height: auto;
+}
+.line{
+    width: 100%;
+    height: 20px;
+}
+
+/* right */
+.right{
+    width: 20%;
+    margin-top: 1%;
+    height: auto;
+    margin-left: 3%;
+    float: left;
+}
+.pic{
+    width: 30px;
+    height: auto;
+    margin-top: 1px;
+    float: left;
+}
+#ces{
+    width: 50%;
+    line-height: 30px;
+    float: left;
+    margin-left: 5%;
+}
+#lol{
+    width: 30px;
+    height: auto;
+    margin-top: 1px;
+}
+#fish{
+    width: 100%;
+    position: fixed;
+    width: 20%;
+    bottom: 0;
+    left: 80%;
+    height: 900px;
+    height: auto;
+}
+.fileabout{
+    width: 100%;
+    float: left;
+    text-align: center;
+    height: 100px;
+    background: #fff;
+    margin-top: 5%;
+    box-shadow: inset 1px 1px 0 0 rgb(0 0 0 / 10%);
+    position: absolute;
+    bottom: 0;
+}
+.about{
+    width: 100%;
+    float: left;
+    text-align: center;
+    height: 100px;
+    background: #fff;
+    margin-top: 5%;
+    box-shadow: inset 1px 1px 0 0 rgb(0 0 0 / 10%);
+}
+.nr{
+    margin-top: 2%;
+}
+.about a {
+    color:#000
+}
+.about a:hover{
+    color: red;
+}
+.fileabout a {
+    color:#000
+}
+.fileabout a:hover{
+    color: red;
+}
+/* 手机 */
+.mobile{
+    display: none;
+}
+
+/* 归档 */
+.file{
+    display: none;
+}
+
+/* 分类 */
+.Classification{
+    display: none;
+}
+
+/* 标签 */
+.label{
+    display: none;
+}
+
+/* 关于 */
+.ceshi{
+    display: none;
+}

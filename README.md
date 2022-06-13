@@ -1,24 +1,5 @@
-# mydemo
+# spring_demo
 
-## Project setup
-```
-npm install
-```
+## 小故事
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+手贱rm -rf一时爽，补救火葬场，慎用。常git不然就哦哇达了！(*^_^*)

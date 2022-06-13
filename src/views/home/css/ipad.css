@@ -1,0 +1,11 @@
+@media screen and (max-width:1900px) {
+    .head{
+        width: 200px;
+        height: 200px;
+        z-index: 10;
+        float: left;
+        position: absolute;
+        top: 380px;
+        left: 50px;
+    }
+}
