@@ -20,7 +20,10 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/login',
     name: 'Login',
-    component:Login
+    component:Login,
+    meta:{
+      title: '登录'
+    }
   },
   {
     path: '/content',

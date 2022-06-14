@@ -13,7 +13,7 @@
           <div class="login">
             <p>登录</p>
           </div>
-        </router-link>>
+        </router-link>
       </div>
       <div class="bbackground">
         <img id="background" src="../../image/踊りなさい。.jpg">
@@ -22,19 +22,23 @@
     <div class="mobile">
       <!-- 手机适配导航栏仅仅会在手机上显示 -->
       <div class="dh">
-        <div class="title">Chen' Test</div>
-        <div class="menu"><img id="click" data-src="../../icon/menu.png"></div>
+        <router-link to="/"><div class="title">Chen' Test</div></router-link>
+        <div class="menu"><img @click="changeFlag" id="click" :src="menul"></div>
       </div>
-      <div class="menushow">
-        <ul>
-          <li id="first"><a href="../index.html">首页</a></li>
-          <li><a href="">归档</a></li>
-          <li><a href="">分类</a></li>
-          <li><a href="">标签</a></li>
-          <li><a href="">关于</a></li>
-          <li><a href="../Login/index.html">登录</a></li>
-        </ul>
-      </div>
+      <transition
+          enter-active-class="animate__fadeIn"
+          leave-active-class="animate__fadeOut">
+        <div class="menushow" v-show="flag" >
+          <ul>
+            <li id="first"><a href="">首页</a></li>
+            <li><a id="mobilefile" href="">归档</a></li>
+            <li><a id="classa" href="">分类</a></li>
+            <li><a id="labela" href="">标签</a></li>
+            <li><a id="guanyua" href="">关于</a></li>
+            <li><router-link to="Login">登录</router-link></li>
+          </ul>
+        </div>
+      </transition>
     </div>
     <div class="background">
       <img id="background" src="../../image/踊りなさい。.jpg">
@@ -70,17 +74,33 @@ export default {
   name: "Content",
   data:function (){
     return{
-
+      flag: false,
+      menul: require("../../icon/menu.png"),
+    }
+  },
+  methods:{
+    changeFlag(){
+      if ($('.menushow').is(':hidden')){
+        this.flag = true
+        this.menul = require("../../icon/叉叉.png")
+      } else {
+        this.flag = false
+        this.menul = require("../../icon/menu.png")
+      }
     }
   },
   created() {
     test
   },
+
 }
 </script>
 <style src="./css/content.css" scoped></style>
 <style src="./css/mobile.css" scoped></style>
 <style src="./css/index.css" scoped></style>
+<style src="./css/Contentmobile.css" scoped></style>
 <style scoped>
-
+a{
+  color: #000;
+}
 </style>

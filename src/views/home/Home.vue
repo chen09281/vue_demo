@@ -235,10 +235,10 @@ export default {
     document.addEventListener('visibilitychange', function (e) {
       let state = document.visibilityState;
       if (state == 'hidden') {
-        console.log(state, "离开了")
+        // console.log(state, "离开了")
         document.title = "官人别走啊/(ㄒoㄒ)/~~"
       } else {
-        console.log(state, "回来了")
+        // console.log(state, "回来了")
         document.title = "官人欢迎回来(*^_^*)"
       }
     })

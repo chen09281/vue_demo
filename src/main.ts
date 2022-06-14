@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import 'animate.css'
+import qs from 'qs'
 
 router.beforeEach((to,from,next)=>{
     if (to.meta.title){
@@ -11,4 +12,6 @@ router.beforeEach((to,from,next)=>{
     }
     next()
 })
-createApp(App).use(router).mount('#app')
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+createApp(App).use(router).use(qs).mount('#app')

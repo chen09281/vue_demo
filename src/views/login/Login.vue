@@ -18,7 +18,7 @@
 
     </div>
     <div class="right">
-      <div class="login">
+      <div class="login" v-show="login">
         <div class="wecome">
           <h1>欢迎来到Tzc</h1>
           <p>请先登录</p>
@@ -32,27 +32,27 @@
           <button type="button" @click="click" id="loginn">登录</button>
         </form>
         <div class="function">
-          <div class="regit"><a id="reg" href="">注册</a></div>
-          <div class="lost"><a id="lost" href="">忘记密码</a></div>
+          <div class="regit"><p @click="regit">注册</p></div>
+          <div class="lost"><p @click="lostt">忘记密码</p></div>
         </div>
       </div>
-      <div class="reegit">
+      <div class="reegit" v-if="regedit">
         <div class="back">
-          <a href=""><img src="../../icon/返回.png"></a>
+          <a href=""><img :src="back"></a>
         </div>
         <div class="wecome">
           <h1>欢迎注册</h1>
         </div>
-        <form id="reg" action="http://117.50.176.200:100/registerServlet" method="post">
+        <form id="reg">
           <div class="log">
             <div class="input">
-              <label for="accout">&nbsp;&nbsp;账号:</label><input type="text" id="accout" name="loginId"><br />
-              <label for="user">用户名:</label><input type="text" id="user" name="userName"><br />
-              <label for="pws">&nbsp;&nbsp;&nbsp;密码:</label><input type="password" name="password" id="pws"><br />
-              <label for="phone">&nbsp;&nbsp;&nbsp;手机:</label><input type="text" id="phone" name="phone"><br />
+              <label for="accout">&nbsp;&nbsp;账号:</label><input type="text" id="accout" v-model="accout"><br />
+              <label for="user">用户名:</label><input type="text" id="user" v-model="username"><br />
+              <label for="pws">&nbsp;&nbsp;&nbsp;密码:</label><input type="password" v-model="password" id="pws"><br />
+              <label for="phone">&nbsp;&nbsp;&nbsp;手机:</label><input type="text" id="phone" v-model="phone"><br />
             </div>
           </div>
-          <button type="submit">注册</button>
+          <button type="button" @click="zhu">注册</button>
         </form>
         <div class="error" style="color: red;">
           <p id="ae" style="display: none;">账号输入格式有误</p>
@@ -61,19 +61,18 @@
           <p id="phe" style="display: none;">手机号码输入格式有误</p>
         </div>
       </div>
-      <div class="loost">
+      <div class="loost" v-if="lost">
         <div class="back">
-          <a href=""><img src="../../icon/返回.png"></a>
+          <a href=""><img :src="back"></a>
         </div>
         <div class="wecome">
           <h1>忘记密码</h1>
         </div>
         <form>
           <div class="input">
-            <label for="acout">账户:</label><input type="text" id="acout"><br />
-            <label for="kt">手机:</label><input type="text" id="kt">
+            <label for="acout">账户:</label><input type="text" v-model="accout"><br />
           </div>
-          <button type="submit">找回密码</button>
+          <button type="button" @click="funKey">找回密码</button>
         </form>
       </div>
     </div>
@@ -83,6 +82,7 @@
 <script>
 import axios from 'axios'
 import $ from 'jquery'
+import qs from "qs";
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: "Login",
@@ -90,13 +90,55 @@ export default {
     return{
       username:'',
       password:'',
-      background:require('../../image/15D.jpg')
+      background:require('../../image/15D.jpg'),
+      login:true,
+      regedit:false,
+      lost:false,
+      back:'',
+      accout:'',
+      phone:'',
     }
   },
   mounted() {
     $('.box').css('background',this.background)
   },
   methods:{
+    /**
+     * 界面切换
+     * */
+    regit(){
+      this.back = require('../../icon/返回.png')
+      this.login = false
+      this.regedit = true
+    },
+    lostt(){
+      this.back = require('../../icon/返回.png')
+      this.login = false
+      this.regedit = false
+      this.lost = true
+    },
+    /**
+     * 注册
+     * @param user
+     * */
+    zhu(){
+      var user = qs.stringify({
+        loginId: this.accout,
+        userName: this.username,
+        password: this.password,
+        phone: this.phone
+      })
+      console.log(user)
+      axios.post("http://localhost:8080/spring_demo_war/user/regit1",user)
+          .then(res => {
+            console.log(res.data)
+          })
+    },
+    /**
+     * 登录
+     * @param username
+     * @param password
+     * */
     click(){
       console.log(this.username+"============="+this.password)
       axios.get("http://localhost:8080/spring_demo_war/user/login2",{
@@ -106,10 +148,29 @@ export default {
         }
       }).then(res => {
         console.log(res.data)
-        alert(123)
+        // 页面专挑
+        let path = this.$route.query.redirect
+        this.$router.replace(
+            path == "/" || path == undefined ? '/' : path
+        )
       }).catch(err => {
         console.log(err)
       })
+    },
+    /**
+     * 找回密码
+     * */
+    funKey(message){
+      console.log(this.accout)
+      axios.get("http://localhost:8080/spring_demo_war/user/lost",{
+        params:{
+          userName: this.accout
+        }
+      }).then(res => {
+        console.log(res.data)
+        this.password = res.data.password
+      })
+      alert("你的密码为"+this.password)
     }
   },
 }
@@ -117,6 +178,8 @@ export default {
 <style src="./css/index.css" scoped></style>
 <style src="./css/mobile.css" scoped></style>
 <style src="./css/lun.css" scoped></style>
+<style src="./css/regit.css" scoped></style>
+<style src="./css/lost.css" scoped></style>
 <style scoped>
 
 </style>
