@@ -20,16 +20,16 @@
     <div class="right">
       <div class="login">
         <div class="wecome">
-          <h1>欢迎来到Test</h1>
+          <h1>欢迎来到Tzc</h1>
           <p>请先登录</p>
         </div>
-        <form id="login" action="http://117.50.176.200:100/loginServlet" method="get">
+        <form id="login">
           <div class="input">
             <label for="username">用户名:</label>
-            <input type="text" placeholder="请输入用户名" id="username" name="loginId"><br />
-            <label for="password">&nbsp;&nbsp;&nbsp;密码:</label><input name="password" type="password" id="password" placeholder="请输入密码">
+            <input type="text" placeholder="请输入用户名" id="username" v-model="username"><br />
+            <label for="password">&nbsp;&nbsp;&nbsp;密码:</label><input v-model="password" type="password" id="password" placeholder="请输入密码">
           </div>
-          <button type="submit" id="loginn">登录</button>
+          <button type="button" @click="click" id="loginn">登录</button>
         </form>
         <div class="function">
           <div class="regit"><a id="reg" href="">注册</a></div>
@@ -82,9 +82,36 @@
 
 <script>
 import axios from 'axios'
+import $ from 'jquery'
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
-  name: "Login"
+  name: "Login",
+  data:function (){
+    return{
+      username:'',
+      password:'',
+      background:require('../../image/15D.jpg')
+    }
+  },
+  mounted() {
+    $('.box').css('background',this.background)
+  },
+  methods:{
+    click(){
+      console.log(this.username+"============="+this.password)
+      axios.get("http://localhost:8080/spring_demo_war/user/login2",{
+        params:{
+          username:this.username,
+          password:this.password
+        }
+      }).then(res => {
+        console.log(res.data)
+        alert(123)
+      }).catch(err => {
+        console.log(err)
+      })
+    }
+  },
 }
 </script>
 <style src="./css/index.css" scoped></style>

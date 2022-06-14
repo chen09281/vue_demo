@@ -64,6 +64,7 @@
 
 <script>
 import test from './js/index'
+import $ from 'jquery'
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: "Content",

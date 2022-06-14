@@ -6,9 +6,17 @@ import Content from '@/views/content/Content.vue'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    name: 'home',
-    component: Home
+    name: 'Home',
+    component: Home,
+    meta:{
+      title:"首页"
+    }
   },
+  // {
+  //   path: '/home',
+  //   name: 'Home',
+  //   component: Home
+  // },
   {
     path: '/login',
     name: 'Login',
