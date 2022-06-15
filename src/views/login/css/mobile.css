@@ -32,14 +32,16 @@
     }
     /* 注册 */
     .back{
-        left: 10%;
+        position: fixed !important;
+        top: 150px !important;
+        left: 20% !important;
     }
     .back img{
         height: 30px;
         width: auto;
     }
     .reegit{
-        margin-top: 50%;
+        margin-top: 130px !important;
     }
     .reegit button{
         margin-top: 10%;
