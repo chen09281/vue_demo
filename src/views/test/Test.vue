@@ -14,7 +14,7 @@ export default {
     }
   },
   created() {
-    console.log(window.localStorage.getItem('access-admin'))
+    // console.log(window.localStorage.getItem('access-admin'))
     this.admin = JSON.parse(window.localStorage.getItem('access-admin'))
   }
 }

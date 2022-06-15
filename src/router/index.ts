@@ -3,6 +3,7 @@ import Home from '../views/home/Home.vue'
 import Login from '@/views/login/Login.vue'
 import Content from '@/views/content/Content.vue'
 import Test from '@/views/test/Test.vue'
+import axios from "axios";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -45,5 +46,33 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
-
+router.beforeEach((to,from,next)=>{
+  if (to.path.startsWith('/login')){
+    window.localStorage.removeItem('access-admin')
+    next()
+  } else {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const admin = JSON.parse(window.localStorage.getItem('access-admin'))
+    if (!admin){
+      next({path:'/login'})
+    } else {
+      // 校验Token合法性
+      axios({
+        url:'http://localhost:8080/spring_demo_war/img/checkToken',
+        method:'get',
+        headers:{
+          token:admin.token
+        }
+      }).then(res=>{
+        // console.log(res.data)
+        if (!res.data){
+          console.log('校验失败')
+          next({path:'/login'})
+        }
+      })
+      next()
+    }
+  }
+})
 export default router

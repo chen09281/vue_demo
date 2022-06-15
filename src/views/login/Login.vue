@@ -163,7 +163,7 @@ export default {
 
       // 测试token
       axios.get('http://localhost:8080/spring_demo_war/img/token',{params:this.ruleForm}).then(res => {
-        console.log(res.data)
+        // console.log(res.data)
         if (res.data != null){
           localStorage.setItem("access-admin",JSON.stringify(res.data))
           this.$router.replace({path:'/test'})
