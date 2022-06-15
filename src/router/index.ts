@@ -2,6 +2,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import Home from '../views/home/Home.vue'
 import Login from '@/views/login/Login.vue'
 import Content from '@/views/content/Content.vue'
+import Test from '@/views/test/Test.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -10,6 +11,14 @@ const routes: Array<RouteRecordRaw> = [
     component: Home,
     meta:{
       title:"首页"
+    }
+  },
+  {
+    path:'/test',
+    name:'Test',
+    component:Test,
+    meta:{
+      title: "测试"
     }
   },
   // {

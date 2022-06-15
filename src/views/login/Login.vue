@@ -26,8 +26,8 @@
         <form id="login">
           <div class="input">
             <label for="username">用户名:</label>
-            <input type="text" placeholder="请输入用户名" id="username" v-model="username"><br />
-            <label for="password">&nbsp;&nbsp;&nbsp;密码:</label><input v-model="password" type="password" id="password" placeholder="请输入密码">
+            <input type="text" placeholder="请输入用户名" id="username" v-model="ruleForm.userName"><br />
+            <label for="password">&nbsp;&nbsp;&nbsp;密码:</label><input v-model="ruleForm.password" type="password" id="password" placeholder="请输入密码">
           </div>
           <button type="button" @click="click" id="loginn">登录</button>
         </form>
@@ -97,6 +97,10 @@ export default {
       back:'',
       accout:'',
       phone:'',
+      ruleForm:{
+        userName:'admin',
+        password:'123456'
+      }
     }
   },
   mounted() {
@@ -126,7 +130,7 @@ export default {
         loginId: this.accout,
         userName: this.username,
         password: this.password,
-        phone: this.phone
+        phone: this.phone,
       })
       console.log(user)
       axios.post("http://localhost:8080/spring_demo_war/user/regit1",user)
@@ -141,7 +145,7 @@ export default {
      * */
     click(){
       console.log(this.username+"============="+this.password)
-      axios.get("http://localhost:8080/spring_demo_war/user/login2",{
+ /*     axios.get("http://localhost:8080/spring_demo_war/user/login2",{
         params:{
           username:this.username,
           password:this.password
@@ -155,6 +159,15 @@ export default {
         )
       }).catch(err => {
         console.log(err)
+      })*/
+
+      // 测试token
+      axios.get('http://localhost:8080/spring_demo_war/img/token',{params:this.ruleForm}).then(res => {
+        console.log(res.data)
+        if (res.data != null){
+          localStorage.setItem("access-admin",JSON.stringify(res.data))
+          this.$router.replace({path:'/test'})
+        }
       })
     },
     /**
