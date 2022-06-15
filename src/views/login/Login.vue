@@ -145,29 +145,17 @@ export default {
      * */
     click(){
       console.log(this.username+"============="+this.password)
- /*     axios.get("http://localhost:8080/spring_demo_war/user/login2",{
-        params:{
-          username:this.username,
-          password:this.password
-        }
-      }).then(res => {
+      axios.get("http://localhost:8080/spring_demo_war/user/login",{
+        params:this.ruleForm}).then(res => {
         console.log(res.data)
-        // 页面专挑
-        let path = this.$route.query.redirect
-        this.$router.replace(
-            path == "/" || path == undefined ? '/' : path
-        )
+        if (res.data == ''){
+          console.log('请求失败')
+          return
+        }
+        localStorage.setItem("access-admin",JSON.stringify(res.data))
+        this.$router.replace({path:'/test'})
       }).catch(err => {
         console.log(err)
-      })*/
-
-      // 测试token
-      axios.get('http://localhost:8080/spring_demo_war/img/token',{params:this.ruleForm}).then(res => {
-        // console.log(res.data)
-        if (res.data != null){
-          localStorage.setItem("access-admin",JSON.stringify(res.data))
-          this.$router.replace({path:'/test'})
-        }
       })
     },
     /**

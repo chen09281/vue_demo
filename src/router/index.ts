@@ -47,7 +47,7 @@ const router = createRouter({
   routes
 })
 router.beforeEach((to,from,next)=>{
-  if (to.path.startsWith('/login')){
+  if (to.path.startsWith('/')){
     window.localStorage.removeItem('access-admin')
     next()
   } else {
@@ -55,7 +55,7 @@ router.beforeEach((to,from,next)=>{
     // @ts-ignore
     const admin = JSON.parse(window.localStorage.getItem('access-admin'))
     if (!admin){
-      next({path:'/login'})
+      next({path:'/'})
     } else {
       // 校验Token合法性
       axios({
@@ -65,10 +65,10 @@ router.beforeEach((to,from,next)=>{
           token:admin.token
         }
       }).then(res=>{
-        // console.log(res.data)
+        console.log(res.data)
         if (!res.data){
           console.log('校验失败')
-          next({path:'/login'})
+          next({path:'/'})
         }
       })
       next()

@@ -15,10 +15,13 @@
         </ul>
         <input class="select" type="text" placeholder="Search..."/>
         <router-link to="Login">
-          <div class="login">
+          <div class="login" v-if="loginFlag">
             <p>登录</p>
           </div>
         </router-link>
+        <div class="username">
+          {{}}
+        </div>
       </div>
       <div class="background">
         <img id="background" src="../../image/踊りなさい。.jpg">
@@ -41,7 +44,7 @@
           <li><a id="classa" href="">分类</a></li>
           <li><a id="labela" href="">标签</a></li>
           <li><a id="guanyua" href="">关于</a></li>
-          <li><router-link to="Login">登录</router-link></li>
+          <li v-if="loginFlag"><router-link to="Login">登录</router-link></li>
         </ul>
       </div>
       </transition>
@@ -218,6 +221,16 @@ export default {
     return {
       flag: false,
       menul: require("../../icon/menu.png"),
+      loginFlag:true
+    }
+  },
+  created() {
+    this.admin = JSON.parse(window.localStorage.getItem('access-admin'))
+    console.log(this.admin)
+    if (this.admin == null){
+      this.loginFlag = true
+    } else {
+    this.loginFlag = false
     }
   },
   methods:{
