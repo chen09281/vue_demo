@@ -19,8 +19,16 @@
             <p>登录</p>
           </div>
         </router-link>
-        <div class="username">
-          {{}}
+        <div class="userName" @click="select">
+          {{admin.userName}}
+          <svg id="down" t="1655455007972" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1581" width="200" height="200"><path d="M224 384h576l-288 320z" p-id="1582"></path></svg>
+          <div ref="list" class="info" @mouseenter="inder">
+            <ul  v-show="boolean">
+              <li data-index="1">我的信息</li>
+              <li>设置</li>
+              <li>退出</li>
+            </ul>
+          </div>
         </div>
       </div>
       <div class="background">
@@ -211,7 +219,6 @@
     </div>
   </div>
 </template>
-
 <script>
 import $ from 'jquery'
 export default {
@@ -221,7 +228,9 @@ export default {
     return {
       flag: false,
       menul: require("../../icon/menu.png"),
-      loginFlag:true
+      loginFlag:true,
+      admin:'',
+      boolean:''
     }
   },
   created() {
@@ -232,6 +241,11 @@ export default {
     } else {
     this.loginFlag = false
     }
+    console.log(this.admin.userName)
+    if (this.boolean == true){
+      document.addEventListener("click",this.bodyClose)
+    }
+
   },
   methods:{
     changeFlag(){
@@ -241,6 +255,22 @@ export default {
       } else {
         this.flag = false
         this.menul = require("../../icon/menu.png")
+      }
+    },
+    select(){
+      this.boolean = true
+      console.log("鼠标移到了这里")
+    },
+    over(){
+      this.boolean = false
+    },
+    inder(){
+      this.boolean = true
+    },
+    bodyClose(e){
+      let btnstatus = this.$refs['list']
+      if (btnstatus && !btnstatus.contains(e.target)){
+        this.boolean = false
       }
     }
   },

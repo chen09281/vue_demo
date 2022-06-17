@@ -98,8 +98,8 @@ export default {
       accout:'',
       phone:'',
       ruleForm:{
-        userName:'admin',
-        password:'123456'
+        userName:'',
+        password:''
       }
     }
   },
@@ -153,7 +153,7 @@ export default {
           return
         }
         localStorage.setItem("access-admin",JSON.stringify(res.data))
-        this.$router.replace({path:'/test'})
+        this.$router.replace({path:'/'})
       }).catch(err => {
         console.log(err)
       })
@@ -174,6 +174,14 @@ export default {
       alert("你的密码为"+this.password)
     }
   },
+  created() {
+    console.log(window.localStorage.getItem('access-admin'))
+    if (window.localStorage.getItem('access-admin') == null){
+      alert("请先登录")
+    }
+    alert("你已经登陆过了")
+    this.$router.replace('/')
+  }
 }
 </script>
 <style src="./css/index.css" scoped></style>
